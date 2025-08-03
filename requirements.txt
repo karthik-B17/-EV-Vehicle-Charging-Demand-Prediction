@@ -6,3 +6,4 @@ statsmodels==0.14.4
 streamlit==1.44.1
 tensorflow==2.19.0
 matplotlib==3.7.2
+seaborn==0.13.2
