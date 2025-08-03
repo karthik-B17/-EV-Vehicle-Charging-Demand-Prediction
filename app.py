@@ -156,12 +156,28 @@ st.pyplot(fig)
 historical_total = historical_cum['Cumulative EV'].iloc[-1]
 forecasted_total = forecast_df['Cumulative EV'].iloc[-1]
 
+# ====== THIS SECTION IS UPDATED: black box with white text ======
 if historical_total > 0:
     forecast_growth_pct = ((forecasted_total - historical_total) / historical_total) * 100
     trend = "increase 📈" if forecast_growth_pct > 0 else "decrease 📉"
-    st.info(
-        f"<span style='font-size:1.25em; color:#254579;'><b>{county}:</b> Projected {trend} of <b>{forecast_growth_pct:.2f}%</b> EV adoption over 3 years.</span>",
-        icon="⚡", unsafe_allow_html=True)
+    st.markdown(
+        f"""
+        <div style='
+            background-color: #000000;
+            border-radius: 8px;
+            padding: 18px 18px 18px 22px;
+            margin-top: 10px;
+            margin-bottom: 8px;
+            font-size: 1.22em;
+            color: #ffffff;
+            box-shadow: 0 2px 4px rgba(40,40,40,0.07);
+            border: 1.5px solid #181818;
+        '>
+            <b>{county}:</b> Projected {trend} of <b>{forecast_growth_pct:.2f}%</b> EV adoption over 3 years.
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 else:
     st.warning("Historical EV total is zero; percentage forecast change cannot be computed.")
 
@@ -242,7 +258,24 @@ with st.expander("Compare up to 3 counties 🚗📊"):
             else:
                 growth_summaries.append(f"{cty}: N/A (no historical data)")
         growth_sentence = " | ".join(growth_summaries)
-        st.success(f"Forecasted EV adoption growth over next 3 years — {growth_sentence}")
+        st.markdown(
+            f"""
+            <div style='
+                background-color: #000000;
+                border-radius: 8px;
+                padding: 14px 18px 14px 22px;
+                margin-top: 10px;
+                margin-bottom: 8px;
+                font-size: 1.11em;
+                color: #ffffff;
+                box-shadow: 0 2px 4px rgba(40,40,40,0.07);
+                border: 1.5px solid #181818;
+            '>
+                Forecasted EV adoption growth over next 3 years — {growth_sentence}
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
 # === Footer ===
 st.markdown(
