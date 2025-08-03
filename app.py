@@ -67,7 +67,7 @@ with st.sidebar:
         "<h2 style='color: #fff; background: #1ea7fd; padding: 13px 10px; border-radius: 10px; text-align: center;'>⚙️ App Controls</h2>",
         unsafe_allow_html=True
     )
-    st.image("C:/Users/karth/Downloads/Final_submission_internship/ev-car-factory.jpg")
+    st.image("ev-car-factory.jpg")
     st.write("Select a county to see its EV forecast. Use advanced multi-county comparison below.")
 
 # === Title and subtitle section (centered) ===
@@ -86,7 +86,7 @@ st.markdown(
 )
 
 # === Load model and data ===
-model = joblib.load(r'C:\Users\karth\Downloads\Final_submission_internship\forecasting_ev_model.pkl')
+model = joblib.load(r'forecasting_ev_model.pkl')
 
 @st.cache_data
 def load_data():
