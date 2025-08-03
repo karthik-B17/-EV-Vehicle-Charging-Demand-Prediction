@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="EV Forecast", layout="wide")
 
 # === Load model ===
-model = joblib.load(r'C:\Users\karth\Downloads\Final_submission_internship\forecasting_ev_model.pkl')
+model = joblib.load(r'forecasting_ev_model.pkl')
 
 # === Styling ===
 st.markdown("""
@@ -41,7 +41,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Image
-st.image(r"C:\Users\karth\Downloads\Final_submission_internship\ev-car-factory.jpg")
+st.image(r"ev-car-factory.jpg")
 
 # Instruction line
 st.markdown("""
